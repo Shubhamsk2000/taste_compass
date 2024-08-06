@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch, FaRegBell } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-
+import SuprSendInbox from '@suprsend/react-inbox'
+import 'react-toastify/dist/ReactToastify.css'
 function Search() {
+
     const [input, setInput] = useState("");
     const navigate = useNavigate();
-    
+
     const submitHandler = (e) => {
         e.preventDefault();
         navigate('/searched/' + input);
@@ -22,7 +24,11 @@ function Search() {
                 </div>
             </FormStyle>
             <NotificationIcon>
-                <FaRegBell />
+                <SuprSendInbox
+                    workspaceKey="loTm8V73mn3TyPQgfPUM"
+                    subscriberId="JftI8NL-bmpW9Bxsb4R4RzYZN_gjjvLz-lngN_og2lE"
+                    distinctId="hp15series@gmail.com"
+                />
             </NotificationIcon>
         </Navbar>
     );
@@ -78,7 +84,11 @@ const FormStyle = styled.form`
 const NotificationIcon = styled.div`
     font-size: 1.5rem;
     color: #fff;
+    background-color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     cursor: pointer;
 `;
-
 export default Search;
